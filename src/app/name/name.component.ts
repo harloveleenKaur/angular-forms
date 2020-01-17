@@ -23,7 +23,7 @@ export class NameComponent implements OnInit, ControlValueAccessor {
 
   ngOnInit() {
      this.nameForm= new FormGroup({
-    fname: new FormControl('', Validators.required),
+    fname: new FormControl('asd', Validators.required),
     lname: new FormControl('', Validators.required)
   })
   }
@@ -36,19 +36,16 @@ export class NameComponent implements OnInit, ControlValueAccessor {
     val && this.nameForm.setValue(val, { emitEvent: false });
   }
   registerOnChange(fn: any): void {
-    console.log("on change");
     this.nameForm.valueChanges.subscribe(fn);
   }
   registerOnTouched(fn: any): void {
-    console.log("on blur");
     this.onTouched = fn;
   }
   setDisabledState?(isDisabled: boolean): void {
     isDisabled ? this.nameForm.disable() : this.nameForm.enable();
   }
   validate(c: AbstractControl): ValidationErrors | null {
-    console.log("Name Info validation", c);
-    console.log(this.nameForm.valid)
+  console.log(this.nameForm.get('fname').errors.required)
     return this.nameForm.valid ? null : { invalidForm: { valid: false, message: "nameForm fields are invalid" } };
   }
 

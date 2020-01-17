@@ -26,11 +26,9 @@ export class PersonalTabComponent implements OnInit, ControlValueAccessor  {
 
   this.personalForm = new FormGroup
     ({
-    nameForm: new FormControl(''),
-    addressForm: new FormControl('')
+    nameForm: new FormControl('')
    })
   }
-@ViewChild('nameForm', {static: true})
   val;
    public onTouched: () => void = () => { };
    
@@ -60,4 +58,6 @@ export class PersonalTabComponent implements OnInit, ControlValueAccessor  {
   get addressForm(): any {
     return this.personalForm.get('addressForm');
   }
+
+  
 }
