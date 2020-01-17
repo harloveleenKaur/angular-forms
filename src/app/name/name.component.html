@@ -1,0 +1,13 @@
+<div [formGroup]="nameForm">
+  <mat-form-field class="form-group">
+    <input matInput formControlName="fname" type="text" placeholder="First Name:"/>
+    
+    
+  </mat-form-field>
+  <div *ngIf="this.fname.errors">
+    <div *ngIf="this.fname.errors" class="error">! Enter first name</div>
+    </div>
+  <mat-form-field class="form-group">
+    <input matInput formControlName="lname" type="text" placeholder="Last Name:" />
+  </mat-form-field>
+</div>

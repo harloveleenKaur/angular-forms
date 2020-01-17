@@ -1,0 +1,16 @@
+<form [formGroup]="personalForm" validate>
+      <div *ngIf="this.nameForm.errors" class="error">!! Enter Name</div>
+      <div *ngIf="!this.nameForm.errors" class="info">Valid</div>
+      <mat-card style="margin:2em;">
+        
+        <app-name formControlName="nameForm"></app-name>
+      </mat-card>
+      <div *ngIf="this.addressForm.errors" class="error">!! Enter Address</div>
+      <div *ngIf="!this.addressForm.errors" class="info">Valid</div>
+      <mat-card style="margin:2em;">
+        <app-address formControlName="addressForm"></app-address>
+      </mat-card>
+
+      <button mat-button ng-click="save" [disabled]="personalForm.invalid">Save</button>
+      <div *ngIf="!personalForm.invalid" class="info">Valid Personal Form</div>
+    </form>

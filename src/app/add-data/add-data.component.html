@@ -1,0 +1,20 @@
+<form [formGroup]="allForms" validate>
+  <div *ngIf="allForms.valid">dsf</div>
+<mat-tab-group >
+  
+  <mat-tab label="Personal Info">
+    <app-personal-tab formControlName="personalForm"></app-personal-tab>
+  </mat-tab>
+  <mat-tab label="Educational Background">
+     <app-ed-form formControlName="edForm"></app-ed-form>
+  </mat-tab>
+  <mat-tab label="Submit">
+   
+   
+  </mat-tab>
+ 
+</mat-tab-group>
+
+ <button mat-button ng-click="save" [disabled]="allForms.invalid">Final Save</button>
+ <div *ngIf="!allForms.invalid" class="info">All Forms Validated</div>
+ </form>
