@@ -24,7 +24,7 @@ export class NameComponent implements OnInit, ControlValueAccessor {
   ngOnInit() {
      this.nameForm= new FormGroup({
     fname: new FormControl('asd', Validators.required),
-    lname: new FormControl('', Validators.required)
+    lname: new FormControl('fff', Validators.required)
   })
   }
 
@@ -45,7 +45,8 @@ export class NameComponent implements OnInit, ControlValueAccessor {
     isDisabled ? this.nameForm.disable() : this.nameForm.enable();
   }
   validate(c: AbstractControl): ValidationErrors | null {
-  console.log(this.nameForm.get('fname').errors.required)
+    console.log(this.nameForm.valid)
+    console.log("valid name form")
     return this.nameForm.valid ? null : { invalidForm: { valid: false, message: "nameForm fields are invalid" } };
   }
 
