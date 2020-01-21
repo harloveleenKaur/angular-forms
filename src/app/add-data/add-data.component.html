@@ -9,12 +9,12 @@
      <app-ed-form formControlName="edForm"></app-ed-form>
   </mat-tab>
   <mat-tab label="Submit">
-   
+    <button mat-button ng-click="save" [disabled]="allForms.invalid">Final Save</button>
+ <div *ngIf="!allForms.invalid" class="info">All Forms Validated</div>
    
   </mat-tab>
  
 </mat-tab-group>
 
- <button mat-button ng-click="save" [disabled]="allForms.invalid">Final Save</button>
- <div *ngIf="!allForms.invalid" class="info">All Forms Validated</div>
+
  </form>

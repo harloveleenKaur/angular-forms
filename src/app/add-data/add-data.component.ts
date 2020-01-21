@@ -1,5 +1,5 @@
 import { Component, OnInit, forwardRef } from '@angular/core';
-import { FormGroup, FormControl} from '@angular/forms';
+import { FormGroup, FormControl, AbstractControl} from '@angular/forms';
 
 @Component({
   selector: 'app-add-data',
@@ -9,13 +9,24 @@ import { FormGroup, FormControl} from '@angular/forms';
 export class AddDataComponent implements OnInit {
   
   constructor() { }
-  allForms = new FormGroup({
-   personalForm: new FormControl(''),
-   edForm: new FormControl('')
-  })
   
+  public allForms:  FormGroup
 
   ngOnInit() {
-    
+    this.allForms = new FormGroup({
+   personalForm: new FormControl(''),
+   edForm: new FormControl('')
+  }, this.allValidate )
+  }
+
+  ngAfterViewInit() {
+    console.log('Values on allform():');
+    this.allValidate(this.allForms)
+  } 
+
+  allValidate(fg: FormGroup): any{
+    console.log(fg.valid)
+    return { "valid": fg.valid};
+
   }
 }

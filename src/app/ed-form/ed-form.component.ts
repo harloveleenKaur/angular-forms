@@ -33,18 +33,18 @@ edForm= new FormGroup({
     val && this.edForm.setValue(val, { emitEvent: false });
   }
   registerOnChange(fn: any): void {
-    console.log("on change");
+  //  console.log("on change");
     this.edForm.valueChanges.subscribe(fn);
   }
   registerOnTouched(fn: any): void {
-    console.log("on blur");
+  //  console.log("on blur");
     this.onTouched = fn;
   }
   setDisabledState?(isDisabled: boolean): void {
     isDisabled ? this.edForm.disable() : this.edForm.enable();
   }
   validate(c: AbstractControl): ValidationErrors | null {
-    console.log("Personal Info validation", c);
+   // console.log("Personal Info validation", c);
     return this.edForm.valid ? null : { invalidForm: { valid: false, message: "edForm fields are invalid" } };
   }
 }
