@@ -17,7 +17,10 @@ export class AddDataComponent implements OnInit {
    edForm: new FormControl('')
   })
    this.allForms.controls.personalForm.statusChanges.subscribe(val => {
-      this.allValid = this.allForms.get('personalForm').valid 
+      this.allValid = this.allForms.get('personalForm').valid && this.allForms.get('edForm').valid
+   })
+   this.allForms.controls.edForm.statusChanges.subscribe(val => {
+      this.allValid = this.allForms.get('personalForm').valid && this.allForms.get('edForm').valid
    })
  
   }

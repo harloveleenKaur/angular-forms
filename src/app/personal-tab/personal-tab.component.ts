@@ -45,8 +45,8 @@ export class PersonalTabComponent implements OnInit, ControlValueAccessor  {
   }
   validate(c: AbstractControl): ValidationErrors | null {
     
-      console.log(this.personalForm);
-return this.nameForm.valid ? null : { invalidForm: { valid: false, message: "personalForm fields are invalid" } };
+      console.log(this.personalForm.valid);
+return this.personalForm.valid ? null : { invalidForm: { valid: false, message: "personalForm fields are invalid" } };
   
     
   }

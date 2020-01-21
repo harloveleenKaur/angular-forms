@@ -1,3 +1,16 @@
-<p>
-ed-form works!
-</p>
+
+<form [formGroup]="edForm" >
+      <mat-card style="margin:2em;">
+        
+       <mat-form-field class="form-group">
+    <input matInput formControlName="first" type="text" placeholder="Secondary Ed:"/>
+    
+    
+  </mat-form-field>
+  <mat-form-field class="form-group">
+    <input matInput formControlName="grad" type="text" placeholder="Graduation:" />
+  </mat-form-field>
+      </mat-card>
+      <button mat-button ng-click="save" [disabled]="edForm.invalid">Save</button>
+      <div *ngIf="!edForm.invalid" class="info">Valid Ed Form</div>
+    </form>

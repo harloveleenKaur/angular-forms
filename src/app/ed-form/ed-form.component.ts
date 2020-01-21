@@ -25,7 +25,8 @@ export class EdFormComponent implements OnInit {
   }
 
 edForm= new FormGroup({
-  first: new FormControl('')
+  first: new FormControl(''),
+  grad: new FormControl('', Validators.required)
 })
  public onTouched: () => void = () => { };
    
@@ -45,6 +46,9 @@ edForm= new FormGroup({
   }
   validate(c: AbstractControl): ValidationErrors | null {
    // console.log("Personal Info validation", c);
+   console.log(this.edForm.valid)
     return this.edForm.valid ? null : { invalidForm: { valid: false, message: "edForm fields are invalid" } };
   }
+
+   get first(): any { return this.edForm.get('first')}
 }
