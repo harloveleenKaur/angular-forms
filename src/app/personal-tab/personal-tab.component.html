@@ -1,5 +1,5 @@
 <form [formGroup]="personalForm" validate>
-      <div *ngIf="personalForm.invalid" class="error">!! Enter Name</div>
+      <div *ngIf="!personalForm.valid" class="error">!! Enter Name</div>
       <div *ngIf="personalForm.valid" class="info">Valid</div>
       <mat-card style="margin:2em;">
         
