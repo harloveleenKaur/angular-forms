@@ -1,4 +1,4 @@
-import { Component, OnInit, forwardRef } from '@angular/core';
+import { Component, OnInit, forwardRef, ChangeDetectorRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormControl, FormGroup, Validators, AbstractControl, ValidationErrors, NG_VALIDATORS} from '@angular/forms';
 
 @Component({
@@ -27,8 +27,6 @@ export class NameComponent implements OnInit, ControlValueAccessor {
     lname: new FormControl('', Validators.required)
   })
   }
-
-  
 
   public onTouched: () => void = () => { };
   

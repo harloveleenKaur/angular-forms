@@ -20,7 +20,6 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormControl, FormGroup, Valida
 })
 export class PersonalTabComponent implements OnInit, ControlValueAccessor  {
  public personalForm: FormGroup
- private pageLoaded = false
   constructor() { }
 
   ngOnInit() {
@@ -29,12 +28,6 @@ export class PersonalTabComponent implements OnInit, ControlValueAccessor  {
     nameForm: new FormControl('')
    })
   }
-  ngAfterViewInit() {
-     this.pageLoaded = true;
-    console.log('Values on ngAfterViewInit():');
-    console.log(this.nameForm.valid)
-    this.registerOnTouched(this.validate(this.personalForm))
-  } 
   val;
    public onTouched: () => void = () => { };
    
