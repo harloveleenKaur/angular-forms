@@ -20,12 +20,17 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormControl, FormGroup, Valida
 })
 export class PersonalTabComponent implements OnInit, ControlValueAccessor  {
  public personalForm: FormGroup
+ public personalFormValid = false;
   constructor() { }
 
   ngOnInit() {
   this.personalForm = new FormGroup
     ({
     nameForm: new FormControl('')
+   })
+
+   this.personalForm.get('nameForm').statusChanges.subscribe(val => {
+     this.personalFormValid =  this.personalForm.get('nameForm').valid;
    })
   }
   val;
